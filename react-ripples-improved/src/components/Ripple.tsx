@@ -130,7 +130,7 @@ export function Ripples({
   fillAndHold = false,
   optimize = false,
 }: {
-  on?: "click" | "mouseDown" | "clickAndMouseDown";
+  on?: "click" | "mouseDown" | "clickAndMouseDown" | "hover";
   color?: string;
   opacity?: number;
   blur?: number;
@@ -138,7 +138,7 @@ export function Ripples({
   fillAndHold?: boolean;
   optimize?: boolean;
 }) {
-  const neverRemove = optimize;
+  const neverRemove = !optimize;
   const ripplesurfaceRef = useRef(null);
   const style: React.CSSProperties = {
     width: "100%",
@@ -206,6 +206,26 @@ export function Ripples({
           );
         }}
         onMouseDown={(event) => {
+          addRipple(
+            ripplesurfaceRef,
+            event,
+            color,
+            opacity,
+            blur,
+            duration,
+            fillAndHold,
+            neverRemove
+          );
+        }}
+      />
+    );
+  }
+  if (on === "hover") {
+    return (
+      <div
+        ref={ripplesurfaceRef}
+        style={style}
+        onMouseEnter={(event) => {
           addRipple(
             ripplesurfaceRef,
             event,
