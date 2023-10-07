@@ -112,6 +112,11 @@ function addRipple(
       "mouseup",
       () => {
         newRipple.style.opacity = "0";
+        if (!neverRemove) {
+          setTimeout(() => {
+            ref.current!.removeChild(newRipple);
+          }, duration);
+        }
       },
       {
         once: true,
