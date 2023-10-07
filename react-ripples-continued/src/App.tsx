@@ -73,7 +73,7 @@ function App() {
           </div>
         </div>
         <h2 className="mt-10 text-slate-500 font-mono font-bold text-sm">
-          Build By Balazs Hevesi
+          Built By Balazs Hevesi
         </h2>
         <h2 className="mt-10 text-slate-500 font-mono font-bold text-sm">
           Docs and NPM package comming soon...
