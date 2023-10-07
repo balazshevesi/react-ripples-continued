@@ -1,6 +1,33 @@
 import React, { useRef } from "react";
 
-//animation
+//fillAndHold animation
+let fillAndHoldAnimationExists = false;
+const dynamicFillAndHoldAnimation = (
+  keyframe: string,
+  element: HTMLElement
+) => {
+  if (!fillAndHoldAnimationExists) {
+    const styleSheet = document.createElement("style");
+    element.appendChild(styleSheet);
+
+    styleSheet.sheet!.insertRule(keyframe, styleSheet.sheet!.cssRules.length);
+    console.log(styleSheet);
+    fillAndHoldAnimationExists = true;
+  }
+};
+
+dynamicFillAndHoldAnimation(
+  `
+@keyframes ripple-fill-and-hold-scale-animation {
+  to {
+    transform: scale(4);
+  }
+}
+  `,
+  document.head
+);
+
+//standart animation
 let animationExists = false;
 const dynamicAnimation = (keyframe: string, element: HTMLElement) => {
   if (!animationExists) {
@@ -33,7 +60,8 @@ function addRipple(
   opacity: number,
   blur: number,
   duration: number,
-  fillAndHold: boolean
+  fillAndHold: boolean,
+  neverRemove: boolean
 ) {
   const newRipple = document.createElement("div");
 
@@ -58,9 +86,14 @@ function addRipple(
   ref.current!.appendChild(newRipple);
 
   //remove
-  setTimeout(() => {
-    ref.current!.removeChild(newRipple);
-  }, duration);
+  if (!neverRemove) {
+    setTimeout(
+      () => {
+        ref.current!.removeChild(newRipple);
+      },
+      fillAndHold ? 100000 : duration
+    );
+  }
 
   //customization
   newRipple.style.backgroundColor = color;
@@ -69,8 +102,23 @@ function addRipple(
   if (!fillAndHold) {
     newRipple.style.animation = `ripple-animation ${duration}ms linear`;
   } else {
-    return new Error("fillAndHold is not yet defined");
-    newRipple.style.animation = `ripple-animation ${duration}ms linear`;
+    // newRipple.style.opacity = "0";
+    newRipple.style.transition = `all ${duration}ms linear`;
+
+    newRipple.style.animation = `ripple-fill-and-hold-scale-animation ${duration}ms linear`;
+
+    setTimeout(() => {
+      newRipple.style.transform = "scale(4)";
+    }, duration);
+    document.addEventListener(
+      "mouseup",
+      () => {
+        newRipple.style.opacity = "0";
+      },
+      {
+        once: true,
+      }
+    );
   }
 }
 
@@ -82,6 +130,7 @@ export function Ripples({
   blur = 0,
   duration = 500,
   fillAndHold = false,
+  optimize = false,
 }: {
   on?: "click" | "mouseDown" | "clickAndMouseDown";
   color?: string;
@@ -89,7 +138,9 @@ export function Ripples({
   blur?: number;
   duration?: number;
   fillAndHold?: boolean;
+  optimize?: boolean;
 }) {
+  const neverRemove = optimize;
   const ripplesurfaceRef = useRef(null);
   const style: React.CSSProperties = {
     width: "100%",
@@ -99,6 +150,26 @@ export function Ripples({
     position: "absolute",
   };
 
+  if (on === "mouseDown" || fillAndHold) {
+    return (
+      <div
+        ref={ripplesurfaceRef}
+        style={style}
+        onMouseDown={(event) => {
+          addRipple(
+            ripplesurfaceRef,
+            event,
+            color,
+            opacity,
+            blur,
+            duration,
+            fillAndHold,
+            neverRemove
+          );
+        }}
+      />
+    );
+  }
   if (on === "click") {
     return (
       <div
@@ -112,26 +183,8 @@ export function Ripples({
             opacity,
             blur,
             duration,
-            fillAndHold
-          );
-        }}
-      />
-    );
-  }
-  if (on === "mouseDown") {
-    return (
-      <div
-        ref={ripplesurfaceRef}
-        style={style}
-        onMouseDown={(event) => {
-          addRipple(
-            ripplesurfaceRef,
-            event,
-            color,
-            opacity,
-            blur,
-            duration,
-            fillAndHold
+            fillAndHold,
+            neverRemove
           );
         }}
       />
@@ -143,10 +196,28 @@ export function Ripples({
         ref={ripplesurfaceRef}
         style={style}
         onClick={(event) => {
-          addRipple(ripplesurfaceRef, event, color, opacity, blur, duration, fillAndHold);
+          addRipple(
+            ripplesurfaceRef,
+            event,
+            color,
+            opacity,
+            blur,
+            duration,
+            fillAndHold,
+            neverRemove
+          );
         }}
         onMouseDown={(event) => {
-          addRipple(ripplesurfaceRef, event, color, opacity, blur, duration, fillAndHold);
+          addRipple(
+            ripplesurfaceRef,
+            event,
+            color,
+            opacity,
+            blur,
+            duration,
+            fillAndHold,
+            neverRemove
+          );
         }}
       />
     );
