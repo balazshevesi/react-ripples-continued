@@ -33,7 +33,7 @@ function App() {
             style={{ boxShadow: "0px 0.3rem 1rem rgb(14 165 233)" }}
           >
             <button className="relative rounded-lg bg-gradient-to-b from-sky-600 to-sky-400 bg-sky-500 border-t-4 border-t-sky-400 border-b-4 border-b-sky-600 uppercase py-2 px-4 font-medium select-none text-white">
-              Improved
+              Continued
               <Ripples />
             </button>
           </div>

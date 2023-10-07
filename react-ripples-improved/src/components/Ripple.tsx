@@ -27,7 +27,7 @@ dynamicFillAndHoldAnimation(
   document.head
 );
 
-//standart animation
+//standard animation
 let animationExists = false;
 const dynamicAnimation = (keyframe: string, element: HTMLElement) => {
   if (!animationExists) {
@@ -102,9 +102,7 @@ function addRipple(
   if (!fillAndHold) {
     newRipple.style.animation = `ripple-animation ${duration}ms linear`;
   } else {
-    // newRipple.style.opacity = "0";
     newRipple.style.transition = `all ${duration}ms linear`;
-
     newRipple.style.animation = `ripple-fill-and-hold-scale-animation ${duration}ms linear`;
 
     setTimeout(() => {

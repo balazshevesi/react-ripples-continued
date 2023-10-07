@@ -1,3 +1,3 @@
-# react-ripples-improved
+# react-ripples-continued
 
-This project is meant to be an improved verison of react-ripples
+This project is meant to be a continued verison of react-ripples, and hopefully improved aswell!
