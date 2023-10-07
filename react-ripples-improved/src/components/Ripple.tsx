@@ -153,96 +153,35 @@ export function Ripples({
     position: "absolute",
   };
 
-  if (on === "mouseDown" || fillAndHold) {
-    return (
-      <div
-        ref={ripplesurfaceRef}
-        style={style}
-        onMouseDown={(event) => {
-          addRipple(
-            ripplesurfaceRef,
-            event,
-            color,
-            opacity,
-            blur,
-            duration,
-            fillAndHold,
-            neverRemove
-          );
-        }}
-      />
+  const handleEvent = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    addRipple(
+      ripplesurfaceRef,
+      event,
+      color,
+      opacity,
+      blur,
+      duration,
+      fillAndHold,
+      neverRemove
     );
+  };
+
+  const eventHandlers: Record<
+    string,
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  > = {};
+
+  if (fillAndHold) {
+    eventHandlers.onMouseDown = handleEvent;
+  } else if (on === "mouseDown") {
+    eventHandlers.onMouseDown = handleEvent;
+  } else if (on === "click") {
+    eventHandlers.onClick = handleEvent;
+  } else if (on === "hover") {
+    eventHandlers.onMouseEnter = handleEvent;
+  } else if (on === "clickAndMouseDown") {
+    eventHandlers.onClick = handleEvent;
+    eventHandlers.onMouseDown = handleEvent;
   }
-  if (on === "click") {
-    return (
-      <div
-        ref={ripplesurfaceRef}
-        style={style}
-        onClick={(event) => {
-          addRipple(
-            ripplesurfaceRef,
-            event,
-            color,
-            opacity,
-            blur,
-            duration,
-            fillAndHold,
-            neverRemove
-          );
-        }}
-      />
-    );
-  }
-  if (on === "clickAndMouseDown") {
-    return (
-      <div
-        ref={ripplesurfaceRef}
-        style={style}
-        onClick={(event) => {
-          addRipple(
-            ripplesurfaceRef,
-            event,
-            color,
-            opacity,
-            blur,
-            duration,
-            fillAndHold,
-            neverRemove
-          );
-        }}
-        onMouseDown={(event) => {
-          addRipple(
-            ripplesurfaceRef,
-            event,
-            color,
-            opacity,
-            blur,
-            duration,
-            fillAndHold,
-            neverRemove
-          );
-        }}
-      />
-    );
-  }
-  if (on === "hover") {
-    return (
-      <div
-        ref={ripplesurfaceRef}
-        style={style}
-        onMouseEnter={(event) => {
-          addRipple(
-            ripplesurfaceRef,
-            event,
-            color,
-            opacity,
-            blur,
-            duration,
-            fillAndHold,
-            neverRemove
-          );
-        }}
-      />
-    );
-  }
+  return <div ref={ripplesurfaceRef} style={style} {...eventHandlers} />;
 }

@@ -53,7 +53,7 @@ function App() {
               >
                 Ripples
               </p>
-              <Ripples fillAndHold opacity={0.5} />
+              <Ripples fillAndHold opacity={0.5} optimize />
             </button>
           </div>
           <div
