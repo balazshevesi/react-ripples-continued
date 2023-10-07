@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
+import { Ripples } from "./components/Ripple";
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className=" h-screen w-full flex justify-center items-center">
+        <div className="flex gap-2 flex-wrap ">
+          <div
+            className="overflow-hidden rounded-lg active:scale-95 transition-all"
+            style={{ boxShadow: "0px 0.3rem 1rem rgb(236 72 153)" }}
+          >
+            <button className="relative rounded-lg bg-pink-500 border-t-4 border-t-pink-400 border-b-4 border-b-pink-600 uppercase py-2 px-4 font-medium select-none text-white">
+              React
+              <Ripples
+                color="white"
+                opacity={0.5}
+                blur={0.4}
+                duration={700}
+                on="clickAndMouseDown"
+              />
+            </button>
+          </div>
+          <div
+            className="overflow-hidden rounded-lg active:scale-95 transition-all"
+            style={{ boxShadow: "0px 0.3rem 1rem rgb(16 185 129)" }}
+          >
+            <button className="relative rounded-lg bg-emerald-500 border-t-4 border-t-emerald-400 border-b-4 border-b-emerald-600 uppercase py-2 px-4 font-medium select-none text-white">
+              Ripples
+              <Ripples />
+            </button>
+          </div>
+          <div
+            className="overflow-hidden rounded-lg active:scale-95 transition-all"
+            style={{ boxShadow: "0px 0.3rem 1rem rgb(14 165 233)" }}
+          >
+            <button className="relative rounded-lg bg-sky-500 border-t-4 border-t-sky-400 border-b-4 border-b-sky-600 uppercase py-2 px-4 font-medium select-none text-white">
+              Improved
+              <Ripples />
+            </button>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
