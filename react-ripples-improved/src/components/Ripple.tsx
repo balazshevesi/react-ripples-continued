@@ -1,6 +1,31 @@
 import React, { useRef } from "react";
-import "../ripple.css";
 
+//animation
+let animationExists = false;
+const dynamicAnimation = (keyframe: string, element: HTMLElement) => {
+  if (!animationExists) {
+    const styleSheet = document.createElement("style");
+    element.appendChild(styleSheet);
+
+    styleSheet.sheet!.insertRule(keyframe, styleSheet.sheet!.cssRules.length);
+    console.log(styleSheet);
+    animationExists = true;
+  }
+};
+
+dynamicAnimation(
+  `
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+  `,
+  document.head
+);
+
+//ripples
 function addRipple(
   ref: React.RefObject<HTMLDivElement>,
   event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -11,20 +36,28 @@ function addRipple(
   fillAndHold: boolean
 ) {
   const newRipple = document.createElement("div");
-  newRipple.classList.add("ripple");
 
+  //styles
+  newRipple.style.position = "absolute";
+  newRipple.style.borderRadius = "50%";
+  newRipple.style.transform = "scale(0)";
+
+  //determine size and position
   const rect = ref.current!.getBoundingClientRect();
   const size = Math.max(rect.width, rect.height);
   const left = event.clientX - rect.left - size / 2;
   const top = event.clientY - rect.top - size / 2;
 
+  //set size and position
   newRipple.style.width = `${size}px`;
   newRipple.style.height = `${size}px`;
   newRipple.style.left = `${left}px`;
   newRipple.style.top = `${top}px`;
 
+  //append
   ref.current!.appendChild(newRipple);
 
+  //remove
   setTimeout(() => {
     ref.current!.removeChild(newRipple);
   }, duration);
@@ -41,6 +74,7 @@ function addRipple(
   }
 }
 
+//ripple component
 export function Ripples({
   on = "click",
   color = "white",
@@ -109,10 +143,10 @@ export function Ripples({
         ref={ripplesurfaceRef}
         style={style}
         onClick={(event) => {
-          addRipple(ripplesurfaceRef, event, color, opacity, blur, duration);
+          addRipple(ripplesurfaceRef, event, color, opacity, blur, duration, fillAndHold);
         }}
         onMouseDown={(event) => {
-          addRipple(ripplesurfaceRef, event, color, opacity, blur, duration);
+          addRipple(ripplesurfaceRef, event, color, opacity, blur, duration, fillAndHold);
         }}
       />
     );
