@@ -3,7 +3,7 @@ import background from "./imgs/checkerboard_pattern.svg";
 function App() {
   return (
     <>
-      <div className=" absolute bg-slate-900 w-full h-screen z-[-1]">
+      <div className=" absolute bg-gradient-to-t from-slate-900 to-indigo-950 w-full h-screen z-[-1]">
         <div className=" opacity-[0.02]">
           <div
             className={`absolute w-full h-screen z-[-1] mix-blend-multiply`}
@@ -16,9 +16,6 @@ function App() {
         </div>
       </div>
       <div className=" h-screen w-full flex flex-col justify-center items-center">
-        <h2 className="mb-8 text-slate-200 font-mono font-medium text-xl">
-          React Ripples Continued
-        </h2>
         <div className="flex gap-2 flex-wrap ">
           <div
             className="overflow-hidden rounded-lg active:scale-95 transition-all"

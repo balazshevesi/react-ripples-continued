@@ -1,0 +1,26 @@
+{
+  "name": "react-ripples-continued",
+  "version": "1.0.0",
+  "description": "UI ripple effect for react made simple",
+  "main": "Ripple.tsx",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Balazs-topg/react-ripples-improved.git"
+  },
+  "keywords": [
+    "ripple"
+  ],
+  "author": "Balazs Hevesi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Balazs-topg/react-ripples-improved/issues"
+  },
+  "homepage": "https://github.com/Balazs-topg/react-ripples-improved#readme",
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
