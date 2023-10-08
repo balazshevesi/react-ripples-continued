@@ -84,7 +84,7 @@ When set to `true`, the ripple effect will fill the container and hold its posit
 - Type: `boolean`
 - Default: `false`
 
-When set to `true`, the ripple elements will not be removed from the DOM after the animation completes. This can be useful for performance optimization in scenarios with frequent ripple triggers, but it's set to false by default, since it can introduce some wierd behaviour.
+When set to `true`, the ripple elements will be removed from the DOM after the animation completes. This can be useful for performance optimization in scenarios with frequent ripple triggers, but it's set to false by default, since it can introduce some wierd behaviour.
 
 ### `rippleElement`
 
