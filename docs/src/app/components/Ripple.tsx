@@ -1,57 +1,7 @@
+"use client"; //just for next.js
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
-
-//fillAndHold animation
-let fillAndHoldAnimationExists = false;
-const dynamicFillAndHoldAnimation = (
-  keyframe: string,
-  element: HTMLElement
-) => {
-  if (!fillAndHoldAnimationExists) {
-    const styleSheet = document.createElement("style");
-    element.appendChild(styleSheet);
-
-    styleSheet.sheet!.insertRule(keyframe, styleSheet.sheet!.cssRules.length);
-    console.log(styleSheet);
-    fillAndHoldAnimationExists = true;
-  }
-};
-
-dynamicFillAndHoldAnimation(
-  `
-@keyframes ripple-fill-and-hold-scale-animation {
-  to {
-    transform: scale(4);
-  }
-}
-  `,
-  document.head
-);
-
-//standard animation
-let animationExists = false;
-const dynamicAnimation = (keyframe: string, element: HTMLElement) => {
-  if (!animationExists) {
-    const styleSheet = document.createElement("style");
-    element.appendChild(styleSheet);
-
-    styleSheet.sheet!.insertRule(keyframe, styleSheet.sheet!.cssRules.length);
-    console.log(styleSheet);
-    animationExists = true;
-  }
-};
-
-dynamicAnimation(
-  `
-@keyframes ripple-animation {
-  to {
-    transform: scale(4);
-    opacity: 0;
-  }
-}
-  `,
-  document.head
-);
+import "./Ripple.css";
 
 //ripples
 function addRipple(

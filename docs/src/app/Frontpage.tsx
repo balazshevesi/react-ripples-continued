@@ -1,29 +1,12 @@
+import React from "react";
 import { Ripples } from "./components/Ripple";
-import background from "./imgs/checkerboard_pattern.svg";
+import ReactMarkdown from "react-markdown";
+import { json } from "stream/consumers";
 
-async function copyToClipboard(text: string) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch (err) {
-    console.error("Failed to copy text: ", err);
-  }
-}
-
-function App() {
+function Frontpage() {
   return (
     <>
-      <div className=" absolute bg-gradient-to-t from-slate-900 to-indigo-950 w-full h-screen z-[-1]">
-        <div className=" opacity-[0.02]">
-          <div
-            className={`absolute w-full h-screen z-[-1] mix-blend-multiply`}
-            style={{
-              backgroundImage: `url(${background})`,
-              backgroundRepeat: "repeat",
-              backgroundSize: "30px",
-            }}
-          ></div>
-        </div>
-      </div>
+      <div className=" absolute bg-gradient-to-t from-slate-900 to-indigo-950 w-full h-screen z-[-1]"></div>
       <div className=" h-screen w-full flex flex-col justify-center items-center">
         <div className="flex gap-2 flex-wrap ">
           <div
@@ -82,9 +65,9 @@ function App() {
           Built By Balazs Hevesi
         </h2>
         <h2
-          onClick={() => {
-            copyToClipboard("npm install react-ripples-continued");
-          }}
+          // onClick={() => {
+          //   copyToClipboard("npm install react-ripples-continued");
+          // }}
           className="mt-10 relative overflow-hidden text-white font-mono text-sm shadow-xl bg-slate-700 px-10 py-4 rounded-xl"
         >
           <div className=" z-10 relative pointer-events-none">
@@ -107,4 +90,4 @@ function App() {
   );
 }
 
-export default App;
+export default Frontpage;

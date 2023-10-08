@@ -101,12 +101,10 @@ This function is not react specific (except ReactDOM.createRoot for prasing JSX/
 
 ## Dynamic Animations
 
-The component includes two animations:
+The component includes two animation keyframes:
 
 1. `ripple-animation`: The standard ripple effect animation.
 2. `ripple-fill-and-hold-scale-animation`: A fill and hold animation for the ripple effect.
-
-These animations are dynamically injected into the document head upon component import.
 
 ## Styling
 
