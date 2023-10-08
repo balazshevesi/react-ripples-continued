@@ -10,23 +10,27 @@ npm install react-ripples-continued
 
 ## Usage
 
-One thing to note about usage is that **the parent container should always have overflow: "hidden" and position: "relative"**, otherwise it will not work as expected. recommend using tailwind for it, but it's up to you.
+One thing to note about usage is that **the parent container should always have overflow: "hidden" and position: "relative"**, otherwise it will not work as expected. I recommend using tailwind for it, but it's up to you.
 
 ```javascript
 import { Ripples } from "react-ripples-continued";
 
-<button
-  style={{
-    overflow: "hidden",
-    position: "relative",
-    backgroundColor: "wheat",
-    padding: "1rem",
-    borderRadius: "1rem",
-  }}
->
-  react ripples 🎉
-  <Ripples />
-</button>;
+export default function Button() {
+  return (
+    <button
+      style={{
+        overflow: "hidden",
+        position: "relative",
+        backgroundColor: "wheat",
+        padding: "1rem",
+        borderRadius: "1rem",
+      }}
+    >
+      react ripples 🎉
+      <Ripples />
+    </button>
+  );
+}
 ```
 
 ## Props

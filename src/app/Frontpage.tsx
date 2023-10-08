@@ -1,14 +1,32 @@
+"use client";
 import React from "react";
 import { Ripples } from "./components/Ripple";
 import ReactMarkdown from "react-markdown";
 import { json } from "stream/consumers";
+
+function copyToClipboard(text: string): boolean {
+  const textarea = document.createElement("textarea");
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  let copied = false;
+  try {
+    copied = document.execCommand("copy");
+  } catch (err) {
+    console.error("Failed to copy text to clipboard:", err);
+  }
+
+  document.body.removeChild(textarea);
+  return copied;
+}
 
 function Frontpage() {
   return (
     <>
       <div className=" absolute bg-gradient-to-t from-slate-900 to-indigo-950 w-full h-screen z-[-1]"></div>
       <div className=" h-screen w-full flex flex-col justify-center items-center">
-        <div className="flex gap-2 flex-wrap ">
+        <div className="flex justify-center gap-2 flex-wrap p-4">
           <div
             className="overflow-hidden rounded-lg active:scale-95 transition-all"
             style={{ boxShadow: "0px 0.3rem 1rem rgb(236 72 153)" }}
@@ -64,27 +82,29 @@ function Frontpage() {
         <h2 className="mt-10 text-slate-500 font-mono font-bold text-sm">
           Built By Balazs Hevesi
         </h2>
-        <h2
-          // onClick={() => {
-          //   copyToClipboard("npm install react-ripples-continued");
-          // }}
-          className="mt-10 relative overflow-hidden text-white font-mono text-sm shadow-xl bg-slate-700 px-10 py-4 rounded-xl"
-        >
-          <div className=" z-10 relative pointer-events-none">
-            <span className="text-[#50fa7b]">npm</span>{" "}
-            <span className="text-[#bd93f9]">install</span>{" "}
-            react-ripples-continued
-          </div>
-          <Ripples
-            color=""
-            rippleElement={
-              <div className=" select-none flex items-center justify-center relative">
-                <div className=" text-xs font-sans">copied ✅</div>
-                <div className=" blur absolute w-16 h-16 rounded-full border-4 border-white"></div>
-              </div>
-            }
-          />
-        </h2>
+        <div className=" px-4">
+          <h2
+            onClick={() => {
+              copyToClipboard("npm install react-ripples-continued");
+            }}
+            className="mt-10 relative overflow-hidden text-white font-mono text-sm shadow-xl bg-slate-700 px-6 py-4 rounded-xl"
+          >
+            <div className="z-10 relative pointer-events-none">
+              <span className="text-[#50fa7b]">npm</span>{" "}
+              <span className="text-[#bd93f9]">install</span>{" "}
+              react-ripples-continued
+            </div>
+            <Ripples
+              color=""
+              rippleElement={
+                <div className=" select-none flex items-center justify-center relative">
+                  <div className=" text-xs font-sans">copied ✅</div>
+                  <div className=" blur absolute w-16 h-16 rounded-full border-4 border-white"></div>
+                </div>
+              }
+            />
+          </h2>
+        </div>
       </div>
     </>
   );
