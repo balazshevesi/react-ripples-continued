@@ -11,7 +11,12 @@
     "url": "git+https://github.com/Balazs-topg/react-ripples-improved.git"
   },
   "keywords": [
-    "ripple"
+    "react",
+    "ripple",
+    "ripples",
+    "effect",
+    "button",
+    "material"
   ],
   "author": "Balazs Hevesi",
   "license": "MIT",

@@ -1,5 +1,14 @@
 import { Ripples } from "./components/Ripple";
 import background from "./imgs/checkerboard_pattern.svg";
+
+async function copyToClipboard(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+  } catch (err) {
+    console.error("Failed to copy text: ", err);
+  }
+}
+
 function App() {
   return (
     <>
@@ -50,7 +59,7 @@ function App() {
               >
                 Ripples
               </p>
-              <Ripples fillAndHold opacity={0.5} optimize />
+              <Ripples fillAndHold opacity={0.5} />
             </button>
           </div>
           <div
@@ -72,8 +81,26 @@ function App() {
         <h2 className="mt-10 text-slate-500 font-mono font-bold text-sm">
           Built By Balazs Hevesi
         </h2>
-        <h2 className="mt-10 text-slate-500 font-mono font-bold text-sm">
-          Docs and NPM package comming soon...
+        <h2
+          onClick={() => {
+            copyToClipboard("npm install react-ripples-continued");
+          }}
+          className="mt-10 relative overflow-hidden text-white font-mono text-sm shadow-xl bg-slate-700 px-10 py-4 rounded-xl"
+        >
+          <div className=" z-10 relative pointer-events-none">
+            <span className="text-[#50fa7b]">npm</span>{" "}
+            <span className="text-[#bd93f9]">install</span>{" "}
+            react-ripples-continued
+          </div>
+          <Ripples
+            color=""
+            rippleElement={
+              <div className=" select-none flex items-center justify-center relative">
+                <div className=" text-xs font-sans">copied ✅</div>
+                <div className=" blur absolute w-16 h-16 rounded-full border-4 border-white"></div>
+              </div>
+            }
+          />
         </h2>
       </div>
     </>

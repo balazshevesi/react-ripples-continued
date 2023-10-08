@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import ReactDOM from "react-dom/client";
 
 //fillAndHold animation
 let fillAndHoldAnimationExists = false;
@@ -54,24 +55,37 @@ dynamicAnimation(
 
 //ripples
 function addRipple(
-  ref: React.RefObject<HTMLDivElement>,
+  element: HTMLElement,
   event: React.MouseEvent<HTMLDivElement, MouseEvent>,
   color: string,
   opacity: number,
   blur: number,
   duration: number,
   fillAndHold: boolean,
-  neverRemove: boolean
+  neverRemove: boolean,
+  rippleElement?: React.ReactNode,
+  className?: string
 ) {
   const newRipple = document.createElement("div");
+
+  const newRoot = rippleElement && ReactDOM.createRoot(newRipple);
+  newRoot && newRoot.render(rippleElement);
 
   //styles
   newRipple.style.position = "absolute";
   newRipple.style.borderRadius = "50%";
   newRipple.style.transform = "scale(0)";
+  newRipple.style.zIndex = "0";
+  className &&
+    className.split(" ").forEach((className) => {
+      newRipple.classList.add(className);
+    });
+  newRipple.style.display = "flex";
+  newRipple.style.justifyContent = "center";
+  newRipple.style.alignItems = "center";
 
   //determine size and position
-  const rect = ref.current!.getBoundingClientRect();
+  const rect = element!.getBoundingClientRect();
   const size = Math.max(rect.width, rect.height);
   const left = event.clientX - rect.left - size / 2;
   const top = event.clientY - rect.top - size / 2;
@@ -83,19 +97,19 @@ function addRipple(
   newRipple.style.top = `${top}px`;
 
   //append
-  ref.current!.appendChild(newRipple);
+  element!.appendChild(newRipple);
 
   //remove
   if (!neverRemove) {
     setTimeout(
       () => {
-        ref.current!.removeChild(newRipple);
+        element!.removeChild(newRipple);
       },
       fillAndHold ? 100000 : duration
     );
   }
 
-  //customization
+  //apply customization
   newRipple.style.backgroundColor = color;
   newRipple.style.opacity = String(opacity);
   newRipple.style.filter = `blur(${blur}rem)`;
@@ -114,7 +128,7 @@ function addRipple(
         newRipple.style.opacity = "0";
         if (!neverRemove) {
           setTimeout(() => {
-            ref.current!.removeChild(newRipple);
+            element!.removeChild(newRipple);
           }, duration);
         }
       },
@@ -134,6 +148,8 @@ export function Ripples({
   duration = 500,
   fillAndHold = false,
   optimize = false,
+  rippleElement,
+  className,
 }: {
   on?: "click" | "mouseDown" | "clickAndMouseDown" | "hover";
   color?: string;
@@ -142,6 +158,8 @@ export function Ripples({
   duration?: number;
   fillAndHold?: boolean;
   optimize?: boolean;
+  rippleElement?: React.ReactNode;
+  className?: string;
 }) {
   const neverRemove = !optimize;
   const ripplesurfaceRef = useRef(null);
@@ -155,14 +173,16 @@ export function Ripples({
 
   const handleEvent = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     addRipple(
-      ripplesurfaceRef,
+      ripplesurfaceRef.current!,
       event,
       color,
       opacity,
       blur,
       duration,
       fillAndHold,
-      neverRemove
+      neverRemove,
+      rippleElement,
+      className
     );
   };
 
@@ -183,5 +203,7 @@ export function Ripples({
     eventHandlers.onClick = handleEvent;
     eventHandlers.onMouseDown = handleEvent;
   }
-  return <div ref={ripplesurfaceRef} style={style} {...eventHandlers} />;
+  return (
+    <div aria-hidden ref={ripplesurfaceRef} style={style} {...eventHandlers} />
+  );
 }
