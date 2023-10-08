@@ -11,6 +11,7 @@ Keep in mind that once a ripple has been appended to the DOM, it will just stay 
 ## todo
 
 - [x] create
+- [ ] publish to gh pages
 - [ ] publish to npm
 - [ ] write/create docs
 - [ ] spread the word
