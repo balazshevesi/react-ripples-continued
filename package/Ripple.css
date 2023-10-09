@@ -1,0 +1,12 @@
+@keyframes ripple-fill-and-hold-scale-animation {
+  to {
+    transform: scale(4);
+  }
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
