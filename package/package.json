@@ -1,10 +1,12 @@
 {
   "name": "react-ripples-continued",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "UI ripple effect for react made simple",
-  "main": "Ripple.tsx",
+  "main": "dist/Ripple.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,9 @@
     "effect",
     "button",
     "material"
+  ],
+  "files": [
+    "dist"
   ],
   "author": "Balazs Hevesi",
   "license": "MIT",

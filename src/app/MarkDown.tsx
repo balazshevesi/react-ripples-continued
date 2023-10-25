@@ -1,4 +1,3 @@
-import ReactMarkdown from "react-markdown";
 
 async function MarkDown() {
   let readMe = "";

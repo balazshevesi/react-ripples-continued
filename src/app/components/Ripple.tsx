@@ -1,7 +1,6 @@
 "use client"; //just for next.js
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
-import "./Ripple.css";
 
 //ripples
 function addRipple(
@@ -18,67 +17,71 @@ function addRipple(
 ) {
   const newRipple = document.createElement("div");
 
+  //handle custom ripple
   const newRoot = rippleElement && ReactDOM.createRoot(newRipple);
   newRoot && newRoot.render(rippleElement);
 
-  //styles
-  newRipple.style.position = "absolute";
-  newRipple.style.borderRadius = "50%";
-  newRipple.style.transform = "scale(0)";
-  newRipple.style.zIndex = "0";
-  className &&
-    className.split(" ").forEach((className) => {
-      newRipple.classList.add(className);
-    });
-  newRipple.style.display = "flex";
-  newRipple.style.justifyContent = "center";
-  newRipple.style.alignItems = "center";
+  //styles for ripple
+  Object.assign(newRipple.style, {
+    position: "absolute",
+    borderRadius: "50%",
+    transform: "scale(0)",
+    zIndex: "0",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: color,
+    opacity: String(opacity),
+    filter: `blur(${blur}rem)`,
+    transition: `transform ${duration}ms linear, opacity ${duration}ms linear`,
+  });
 
-  //determine size and position
-  const rect = element!.getBoundingClientRect();
+  //append param classes to ripple element
+  className &&
+    className
+      .split(" ")
+      .forEach((className) => className && newRipple.classList.add(className));
+
+  //determine and set size and position
+  const rect = element.getBoundingClientRect();
   const size = Math.max(rect.width, rect.height);
   const left = event.clientX - rect.left - size / 2;
   const top = event.clientY - rect.top - size / 2;
 
-  //set size and position
-  newRipple.style.width = `${size}px`;
-  newRipple.style.height = `${size}px`;
-  newRipple.style.left = `${left}px`;
-  newRipple.style.top = `${top}px`;
+  Object.assign(newRipple.style, {
+    width: `${size}px`,
+    height: `${size}px`,
+    left: `${left}px`,
+    top: `${top}px`,
+  });
 
   //append
-  element!.appendChild(newRipple);
+  element.appendChild(newRipple);
 
-  //remove
-  if (!neverRemove) {
-    setTimeout(
-      () => {
-        element!.removeChild(newRipple);
-      },
-      fillAndHold ? 100000 : duration
-    );
+  //trigger the ripple effect
+  setTimeout(() => {
+    newRipple.style.transform = "scale(4)";
+    if (!fillAndHold) {
+      newRipple.style.opacity = "0";
+    }
+  }, 0);
+
+  //remove (only if neverRemove is false, and fillAndHold is also false)
+  if (!neverRemove && !fillAndHold) {
+    setTimeout(() => {
+      element.removeChild(newRipple);
+    }, duration);
   }
 
-  //apply customization
-  newRipple.style.backgroundColor = color;
-  newRipple.style.opacity = String(opacity);
-  newRipple.style.filter = `blur(${blur}rem)`;
-  if (!fillAndHold) {
-    newRipple.style.animation = `ripple-animation ${duration}ms linear`;
-  } else {
-    newRipple.style.transition = `all ${duration}ms linear`;
-    newRipple.style.animation = `ripple-fill-and-hold-scale-animation ${duration}ms linear`;
-
-    setTimeout(() => {
-      newRipple.style.transform = "scale(4)";
-    }, duration);
+  //handle fill and hold
+  if (fillAndHold) {
     document.addEventListener(
       "mouseup",
       () => {
         newRipple.style.opacity = "0";
         if (!neverRemove) {
           setTimeout(() => {
-            element!.removeChild(newRipple);
+            element.removeChild(newRipple);
           }, duration);
         }
       },
