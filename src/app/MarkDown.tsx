@@ -1,3 +1,12 @@
+let ReactMarkdown: any;
+
+async function loadReactMarkdown() {
+  if (!ReactMarkdown) {
+    ReactMarkdown = (await import("react-markdown")).default;
+  }
+}
+
+loadReactMarkdown();
 
 async function MarkDown() {
   let readMe = "";

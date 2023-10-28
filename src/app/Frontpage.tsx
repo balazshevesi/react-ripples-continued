@@ -77,22 +77,6 @@ function Frontpage() {
               <Ripples duration={3000} on="hover" />
             </button>
           </div>
-
-          <div
-            className="overflow-hidden rounded-lg active:scale-95 transition-all"
-            style={{ boxShadow: "0px 0.3rem 1rem rgb(14 165 233)" }}
-          >
-            <button className="relative rounded-lg bg-gradient-to-b from-sky-600 to-sky-400 bg-sky-500 border-t-4 border-t-sky-400 border-b-4 border-b-sky-600 uppercase py-2 px-4 font-medium select-none text-white">
-              <p
-                style={{
-                  filter: "drop-shadow(0px 2px 2px rgb(255, 255, 255, 0.5))",
-                }}
-              >
-                Continueeeeed
-              </p>
-              <Ripples opacity={0.7} fillAndHold optimize />
-            </button>
-          </div>
         </div>
         <h2 className="mt-10 text-slate-500 font-mono font-bold text-sm">
           Built By Balazs Hevesi

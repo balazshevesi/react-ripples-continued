@@ -1,5 +1,3 @@
-import { Ripples } from "./components/Ripple";
-import ReactMarkdown from "react-markdown";
 import Frontpage from "./Frontpage";
 import MarkDown from "./MarkDown";
 
