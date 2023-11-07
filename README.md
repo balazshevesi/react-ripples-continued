@@ -107,7 +107,7 @@ When set to `true`, the ripple elements will be removed from the DOM after the a
 - Type: `React.ReactNode`
 - Default: `undefined`
 
-When handed JSX it will display that JSX inside the ripple. Keep in mind that you probably want to lower the opacticy of the color prop if you use `rippleElement`
+When handed JSX it will display that JSX inside the ripple. Keep in mind that you probably want to lower the opacticy of the color prop or set `color=""` if you use `rippleElement`
 
 The `rippleElement` prop can be used to do create some pretty cool stuff!
 
