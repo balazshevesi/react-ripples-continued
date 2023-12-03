@@ -16,7 +16,7 @@ function Page() {
     <>
       <Frontpage />
       <div className="bg-slate-900">
-        <div className=" max-w-3xl mx-auto p-8 text-white">
+        <div className=" mx-auto max-w-3xl p-8 text-white">
           <MarkDown />
         </div>
       </div>

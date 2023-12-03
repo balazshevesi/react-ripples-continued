@@ -1,4 +1,6 @@
-"use client"; //just for next.js
+"use client";
+
+//just for next.js
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 
@@ -13,7 +15,7 @@ function addRipple(
   fillAndHold: boolean,
   neverRemove: boolean,
   rippleElement?: React.ReactNode,
-  className?: string
+  className?: string,
 ) {
   const newRipple = document.createElement("div");
 
@@ -87,7 +89,7 @@ function addRipple(
       },
       {
         once: true,
-      }
+      },
     );
   }
 }
@@ -135,7 +137,7 @@ export function Ripples({
       fillAndHold,
       neverRemove,
       rippleElement,
-      className
+      className,
     );
   };
 
