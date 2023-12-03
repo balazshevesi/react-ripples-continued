@@ -13,7 +13,6 @@
   <a href="https://balazs-topg.github.io/react-ripples-continued/">View Demo</a>
 </h3>
 
-
 # React Ripples Continued
 
 The `Ripples` component provides a visual ripple effect, typically used for button click or touch feedback. It's greatly inspired by the material design principals.
@@ -135,3 +134,8 @@ Keep in mind that the parent element will need to be set to overflow: "hidden" a
 ---
 
 This documentation provides an overview of the `Ripples` component, its props, and its behavior. Adjust the paths and any other specific details as needed for your project's context.
+
+## Future
+
+- [ ] Add z-index prop to make ripple appear **behind** the text
+- [ ] Add a container component for the ripples, like a RippleSurface or somethin like that, it should also have a "tag" prop so that it can be a button or a div or whatever the user wants
