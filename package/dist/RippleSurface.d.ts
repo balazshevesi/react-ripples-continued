@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
-import { HtmlTagName } from "./types/HtmlTagName";
-import { RipplesInterface } from "./types/RipplesInterface";
+import { HtmlTagName } from "./types/HtmlTagName.js";
+import { RipplesInterface } from "./types/RipplesInterface.js";
 interface RippleSurface extends RipplesInterface {
     tag?: HtmlTagName;
     children?: ReactNode;

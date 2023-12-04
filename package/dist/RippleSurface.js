@@ -10,7 +10,8 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 import React from "react";
-import { Ripples } from "./Ripples";
+//@ts-ignore
+import { Ripples } from "./Ripples.jsx";
 export function RippleSurface(_a) {
     var { tag = "div", children, disableDefaultStyling, rippleFromBehind, forwardedRef, rippleProps } = _a, props = __rest(_a, ["tag", "children", "disableDefaultStyling", "rippleFromBehind", "forwardedRef", "rippleProps"]);
     return React.createElement(tag, Object.assign(Object.assign({}, props), { style: !disableDefaultStyling

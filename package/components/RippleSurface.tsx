@@ -1,9 +1,9 @@
 import React, { ReactNode } from "react";
 
 //@ts-ignore
-import { Ripples } from "./Ripples.jsx";
-import { HtmlTagName } from "./types/HtmlTagName.js";
-import { RipplesInterface } from "./types/RipplesInterface.js";
+import { Ripples } from "./Ripples.tsx";
+import { HtmlTagName } from "./types/HtmlTagName.ts";
+import { RipplesInterface } from "./types/RipplesInterface.ts";
 
 interface RippleSurface extends RipplesInterface {
   tag?: HtmlTagName;

@@ -4,7 +4,7 @@
 import React, { useRef } from "react";
 import ReactDOM from "react-dom/client";
 
-import { RipplesInterface } from "./types/RipplesInterface";
+import { RipplesInterface } from "./types/RipplesInterface.js";
 
 //ripples
 function addRipple(
