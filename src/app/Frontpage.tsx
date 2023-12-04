@@ -1,9 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useRef, useState } from "react";
 
-import { Ripples } from "./components/Ripple";
-import { json } from "stream/consumers";
+import { RippleSurface, Ripples } from "./components/main";
 
 function copyToClipboard(text: string): boolean {
   const textarea = document.createElement("textarea");
@@ -26,7 +25,16 @@ function Frontpage() {
   return (
     <>
       <div className=" absolute z-[-1] h-screen w-full bg-gradient-to-t from-slate-900 to-indigo-950"></div>
-      <div className=" flex h-screen w-full flex-col items-center justify-center">
+      <div className="flex h-screen w-full flex-col items-center justify-center">
+        <RippleSurface
+          tag="button"
+          id="123"
+          rippleFromBehind
+          className=" rounded-xl p-4"
+          rippleProps={{ blur: 0.2, color: "orange", duration: 2000 }}
+        >
+          Testinggg
+        </RippleSurface>
         <div className="flex flex-wrap justify-center gap-2 p-4">
           <div
             className="overflow-hidden rounded-lg transition-all active:scale-95"
@@ -53,15 +61,16 @@ function Frontpage() {
             className="overflow-hidden rounded-lg transition-all active:scale-95"
             style={{ boxShadow: "0px 0.3rem 1rem rgb(16 185 129)" }}
           >
-            <button className="relative select-none rounded-lg border-b-4 border-t-4 border-b-emerald-600 border-t-emerald-400 bg-gradient-to-b from-emerald-600 to-emerald-400 px-4 py-2 font-medium uppercase text-white">
+            <button className=" relative select-none rounded-lg border-b-4 border-t-4 border-b-emerald-600 border-t-emerald-400 bg-gradient-to-b from-emerald-600 to-emerald-400 px-4 py-2 font-medium uppercase text-white">
               <p
+                className=""
                 style={{
                   filter: "drop-shadow(0px 2px 2px rgb(255, 255, 255, 0.5))",
                 }}
               >
                 Ripples
               </p>
-              <Ripples fillAndHold opacity={0.5} />
+              <Ripples fillAndHold opacity={1} />
             </button>
           </div>
           <div

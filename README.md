@@ -15,17 +15,14 @@
 
 # React Ripples Continued
 
-The `Ripples` component provides a visual ripple effect, typically used for button click or touch feedback. It's greatly inspired by the material design principals.
+React Ripples Continued is a React component library providing a visual ripple effect, typically used for button click or touch feedback. It's inspired by material design principles and now includes the RippleSurface component for more versatile usage.
 
-## Installation
-
-```
+Installation
+Copy code
 npm install react-ripples-continued
-```
-
-## Usage
-
-One thing to note about usage is that **the parent container should always have overflow: "hidden" and position: "relative"**, otherwise it will not work as expected. I recommend using tailwind for it, but it's up to you.
+Usage
+Ripples Component
+The Ripples component creates a ripple effect. Note that the parent container should have overflow: "hidden" and position: "relative" for proper functionality.
 
 ```javascript
 import { Ripples } from "react-ripples-continued";
@@ -33,13 +30,7 @@ import { Ripples } from "react-ripples-continued";
 export default function Button() {
   return (
     <button
-      style={{
-        overflow: "hidden",
-        position: "relative",
-        backgroundColor: "wheat",
-        padding: "1rem",
-        borderRadius: "1rem",
-      }}
+      style={{ overflow: "hidden", position: "relative" /* other styles */ }}
     >
       react ripples 🎉
       <Ripples />
@@ -48,60 +39,84 @@ export default function Button() {
 }
 ```
 
+RippleSurface Component
+The RippleSurface component is a wrapper that simplifies implementing the ripple effect on various elements.
+
+```javascript
+import RippleSurface from "./RippleSurface";
+
+export default function CustomComponent() {
+  return (
+    <RippleSurface
+      tag="div"
+      rippleProps={
+        {
+          /* Ripple props */
+        }
+      }
+    >
+      {/* Your content */}
+    </RippleSurface>
+  );
+}
+```
+
 ## Props
+
+### Ripples Component
 
 All props are optional
 
-### `on`
+#### `on`
 
 - Type: `"click" | "mouseDown" | "clickAndMouseDown" | "hover"`
 - Default: `"click"`
 
 Determines the event that triggers the ripple effect.
 
-### `color`
+#### `color`
 
 - Type: `string`
 - Default: `"white"`
 
 Sets the color of the ripple effect.
 
-### `opacity`
+#### `opacity`
 
 - Type: `number`
 - Default: `1`
 
 Sets the opacity of the ripple effect. Accepts values between `0` (completely transparent) and `1` (completely opaque).
 
-### `blur`
+#### `blur`
 
 - Type: `number`
 - Default: `0`
 
 Sets the blur amount for the ripple effect. The value is in `rem` units.
 
-### `duration`
+#### `duration`
 
 - Type: `number`
 - Default: `500`
 
 Determines the duration of the ripple animation in milliseconds.
 
-### `fillAndHold`
+#### `fillAndHold`
 
 - Type: `boolean`
 - Default: `false`
 
 When set to `true`, the ripple effect will fill the container and hold its position until a mouse up event occurs.
 
-### `optimize`
+#### `optimize`
 
 - Type: `boolean`
 - Default: `false`
 
 When set to `true`, the ripple elements will be removed from the DOM after the animation completes. This can be useful for performance optimization in scenarios with frequent ripple triggers, but it's set to false by default, since it can introduce some wierd behaviour.
 
-### `rippleElement`
+#### `rippleElement`
 
 - Type: `React.ReactNode`
 - Default: `undefined`
@@ -109,6 +124,57 @@ When set to `true`, the ripple elements will be removed from the DOM after the a
 When handed JSX it will display that JSX inside the ripple. Keep in mind that you probably want to lower the opacticy of the color prop or set `color=""` if you use `rippleElement`
 
 The `rippleElement` prop can be used to do create some pretty cool stuff!
+
+#### `zIndex`
+
+- Type: `number`
+- Default: `undefined`
+
+### RippleSurface Component
+
+All props are optional
+
+#### `tag`
+
+- Type: `React.ReactNode`
+- Default: `HtmlTagName`
+
+#### `children`
+
+- Type: `React.ReactNode`
+- Default: `ReactNode`
+
+#### `disableDefaultStyling`
+
+- Type: `boolean`
+- Default: `false`
+
+When set to true, default styling (overflow and position) is not applied.
+
+#### `rippleFromBehind`
+
+- Type: `boolean`
+- Default: `false`
+
+When set to true, the ripple effect appears behind the content.
+Note: this will also wrap the "children" in a div
+
+#### `forwardedRef`
+
+- Type: `boolean`
+- Default: `any`
+
+Will forward the red
+
+#### `onClick`, `onSubmit`, `onInput`
+
+Event handlers
+
+#### `rippleProps`
+
+- Type: `RipplesInterface`
+
+Props to be passed to the Ripples component.
 
 ## Internal Workings
 
@@ -136,6 +202,3 @@ Keep in mind that the parent element will need to be set to overflow: "hidden" a
 This documentation provides an overview of the `Ripples` component, its props, and its behavior. Adjust the paths and any other specific details as needed for your project's context.
 
 ## Future
-
-- [ ] Add z-index prop to make ripple appear **behind** the text
-- [ ] Add a container component for the ripples, like a RippleSurface or somethin like that, it should also have a "tag" prop so that it can be a button or a div or whatever the user wants

@@ -1,8 +1,8 @@
 {
   "name": "react-ripples-continued",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "UI ripple effect for react made simple",
-  "main": "dist/Ripple.js",
+  "main": "dist/main.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

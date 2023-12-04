@@ -1,16 +1,4 @@
-import React from "react";
-
-export declare function Ripples({
-  on,
-  color,
-  opacity,
-  blur,
-  duration,
-  fillAndHold,
-  optimize,
-  rippleElement,
-  className,
-}: {
+export interface RipplesInterface {
   on?: "click" | "mouseDown" | "clickAndMouseDown" | "hover";
   color?: string;
   opacity?: number;
@@ -20,4 +8,5 @@ export declare function Ripples({
   optimize?: boolean;
   rippleElement?: React.ReactNode;
   className?: string;
-}): React.JSX.Element;
+  zIndex?: number;
+}
