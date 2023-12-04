@@ -26,15 +26,6 @@ function Frontpage() {
     <>
       <div className=" absolute z-[-1] h-screen w-full bg-gradient-to-t from-slate-900 to-indigo-950"></div>
       <div className="flex h-screen w-full flex-col items-center justify-center">
-        <RippleSurface
-          tag="button"
-          id="123"
-          rippleFromBehind
-          className=" rounded-xl p-4"
-          rippleProps={{ blur: 0.2, color: "orange", duration: 2000 }}
-        >
-          Testinggg
-        </RippleSurface>
         <div className="flex flex-wrap justify-center gap-2 p-4">
           <div
             className="overflow-hidden rounded-lg transition-all active:scale-95"
