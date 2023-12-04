@@ -43,7 +43,7 @@ RippleSurface Component
 The RippleSurface component is a wrapper that simplifies implementing the ripple effect on various elements.
 
 ```javascript
-import RippleSurface from "./RippleSurface";
+import { Ripples } from "react-ripples-continued";
 
 export default function CustomComponent() {
   return (
