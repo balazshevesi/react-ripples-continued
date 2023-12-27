@@ -13,6 +13,8 @@
   <a href="https://balazs-topg.github.io/react-ripples-continued/">View Demo</a>
 </h3>
 
+![An image of the ripple effect in action](/imgs/cover.png "React library")
+
 # React Ripples Continued
 
 React Ripples Continued is a React component library providing a visual ripple effect, typically used for button click or touch feedback. It's inspired by material design principles and now includes the RippleSurface component for more versatile usage.
