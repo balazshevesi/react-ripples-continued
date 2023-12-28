@@ -23,7 +23,7 @@ async function MarkDown() {
   const readMe = await getReadMe();
 
   return (
-    <div className="prose dark:prose-invert">
+    <div className="prose mx-auto dark:prose-invert">
       <ReactMarkdown rehypePlugins={[RehypeRaw]}>{readMe}</ReactMarkdown>
     </div>
   );
