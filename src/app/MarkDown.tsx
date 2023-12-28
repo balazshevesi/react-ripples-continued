@@ -1,19 +1,13 @@
 let ReactMarkdown: any, RehypeRaw: any;
 
-const importStuff = async () => {
-  const markdownModule = await import("react-markdown");
-  const rehypeRawModule = await import("rehype-raw");
-  ReactMarkdown = markdownModule.default;
-  RehypeRaw = rehypeRawModule.default;
-};
+async function loadImports() {
+  if (!ReactMarkdown) ReactMarkdown = (await import("react-markdown")).default;
+  if (!RehypeRaw) RehypeRaw = (await import("rehype-raw")).default;
+}
 
-importStuff();
+loadImports();
 
 async function MarkDown() {
-  if (!ReactMarkdown || !RehypeRaw) {
-    await importStuff();
-  }
-
   const getReadMe = async () => {
     try {
       const response = await fetch(
@@ -28,11 +22,6 @@ async function MarkDown() {
   };
 
   const readMe = await getReadMe();
-
-  // Ensure that ReactMarkdown and RehypeRaw are available
-  if (!ReactMarkdown || !RehypeRaw) {
-    return <div>Loading...</div>; // Or any other loading state
-  }
 
   return (
     <div className="prose dark:prose-invert">
