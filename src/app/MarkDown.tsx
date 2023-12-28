@@ -12,7 +12,6 @@ async function MarkDown() {
     try {
       const response = await fetch(
         "https://raw.githubusercontent.com/Balazs-topg/react-ripples-continued/main/README.md",
-        { cache: "no-store" },
       );
       const text = await response.text();
       return text;
