@@ -1,8 +1,6 @@
 import Frontpage from "./Frontpage";
 import MarkDown from "./MarkDown";
 
-console.log("wtesting");
-
 async function copyToClipboard(text: string) {
   try {
     await navigator.clipboard.writeText(text);

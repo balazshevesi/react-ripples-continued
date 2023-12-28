@@ -1,26 +1,26 @@
-let ReactMarkdown: any;
-
-async function loadReactMarkdown() {
-  if (!ReactMarkdown) {
-    ReactMarkdown = (await import("react-markdown")).default;
-  }
-}
-
-loadReactMarkdown();
+import ReactMarkdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 
 async function MarkDown() {
-  let readMe = "";
-  try {
-    const response = await fetch(
-      "https://raw.githubusercontent.com/Balazs-topg/react-ripples-continued/main/README.md",
-    );
-    const text = await response.text();
-    readMe = text;
-  } catch (error) {
-    console.error("Failed to fetch the README:", error);
-  }
+  const getReadMe = async () => {
+    try {
+      const response = await fetch(
+        "https://raw.githubusercontent.com/Balazs-topg/react-ripples-continued/main/README.md",
+        { cache: "no-store" },
+      );
+      const text = await response.text();
+      return text;
+    } catch (error) {
+      console.error("Failed to fetch the README:", error);
+    }
+  };
+  const readMe = await getReadMe();
 
-  return <ReactMarkdown>{readMe}</ReactMarkdown>;
+  return (
+    <div className="prose dark:prose-invert">
+      <ReactMarkdown rehypePlugins={[rehypeRaw]}>{readMe}</ReactMarkdown>
+    </div>
+  );
 }
 
 export default MarkDown;

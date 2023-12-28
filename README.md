@@ -4,16 +4,14 @@
   </a>
   <img src="https://img.shields.io/bundlephobia/minzip/react-ripples-continued?style=for-the-badge&logo=webpack&color=ff79c6&labelColor=282a36" />
 </p>
-
 <h3 align="center">
   Ripple effect for react ⚛️
 </h3>
-
 <h3 align="center">
   <a href="https://balazs-topg.github.io/react-ripples-continued/">View Demo</a>
 </h3>
 
-![An image of the ripple effect in action](/imgs/cover.png "React library")
+<img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/cover.png?raw=true">
 
 # React Ripples Continued
 
@@ -202,5 +200,3 @@ Keep in mind that the parent element will need to be set to overflow: "hidden" a
 ---
 
 This documentation provides an overview of the `Ripples` component, its props, and its behavior. Adjust the paths and any other specific details as needed for your project's context.
-
-## Future
