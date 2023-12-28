@@ -1,9 +1,19 @@
-//@ts-nocheck
-import ReactMarkdown from "react-markdown";
+let ReactMarkdown: any, RehypeRaw: any;
 
-import rehypeRaw from "rehype-raw";
+const importStuff = async () => {
+  const markdownModule = await import("react-markdown");
+  const rehypeRawModule = await import("rehype-raw");
+  ReactMarkdown = markdownModule.default;
+  RehypeRaw = rehypeRawModule.default;
+};
+
+importStuff();
 
 async function MarkDown() {
+  if (!ReactMarkdown || !RehypeRaw) {
+    await importStuff();
+  }
+
   const getReadMe = async () => {
     try {
       const response = await fetch(
@@ -16,11 +26,17 @@ async function MarkDown() {
       console.error("Failed to fetch the README:", error);
     }
   };
+
   const readMe = await getReadMe();
+
+  // Ensure that ReactMarkdown and RehypeRaw are available
+  if (!ReactMarkdown || !RehypeRaw) {
+    return <div>Loading...</div>; // Or any other loading state
+  }
 
   return (
     <div className="prose dark:prose-invert">
-      <ReactMarkdown rehypePlugins={[rehypeRaw]}>{readMe}</ReactMarkdown>
+      <ReactMarkdown rehypePlugins={[RehypeRaw]}>{readMe}</ReactMarkdown>
     </div>
   );
 }

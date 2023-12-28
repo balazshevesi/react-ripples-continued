@@ -1,14 +1,6 @@
 import Frontpage from "./Frontpage";
 import MarkDown from "./MarkDown";
 
-async function copyToClipboard(text: string) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch (err) {
-    console.error("Failed to copy text: ", err);
-  }
-}
-
 function Page() {
   return (
     <>
