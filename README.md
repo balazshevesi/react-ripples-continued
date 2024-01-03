@@ -1,16 +1,15 @@
+<h1 align="center">
+    <a href="https://balazs-topg.github.io/react-ripples-continued/">React Ripples Continued</a>
+</h1>
+<p align="center">
+  Ripple effect for react made simple⚛️
+</p>
 <p align="center">
   <a href="https://www.npmjs.org/package/react-ripples-continued">
     <img src="https://img.shields.io/npm/v/react-ripples-continued?style=for-the-badge&logo=npm&color=ff79c6&labelColor=282a36"/>
   </a>
   <img src="https://img.shields.io/bundlephobia/minzip/react-ripples-continued?style=for-the-badge&logo=webpack&color=ff79c6&labelColor=282a36" />
 </p>
-<h3 align="center">
-  Ripple effect for react ⚛️
-</h3>
-<h3 align="center">
-  <a href="https://balazs-topg.github.io/react-ripples-continued/">View Demo</a>
-</h3>
-
 <img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/cover.png?raw=true">
 
 # React Ripples Continued
