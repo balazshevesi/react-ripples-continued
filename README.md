@@ -1,3 +1,4 @@
+<img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/cover.png?raw=true">
 <h1 align="center">
     <a href="https://balazs-topg.github.io/react-ripples-continued/">React Ripples Continued</a>
 </h1>
@@ -13,10 +14,10 @@
   <a href="https://www.npmjs.org/package/react-ripples-continued">
     <img src="https://img.shields.io/npm/l/react-ripples-continued?style=for-the-badge&logo=webpack&color=ff79c6&labelColor=282a36"/>
   </a>
-
-    
 </p>
-<img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/cover.png?raw=true">
+
+---
+
 
 # React Ripples Continued
 
@@ -201,7 +202,3 @@ The component includes two animation keyframes:
 The ripple effect is styled with an absolute position, ensuring it covers its parent element. The size and position of the ripple are determined based on the triggering event's location.
 
 Keep in mind that the parent element will need to be set to overflow: "hidden" and position: "relative"
-
----
-
-This documentation provides an overview of the `Ripples` component, its props, and its behavior. Adjust the paths and any other specific details as needed for your project's context.
