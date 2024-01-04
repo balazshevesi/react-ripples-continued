@@ -5,6 +5,10 @@
   Ripple effect for <a href="https://react.dev/">react</a> made simple⚛️
 </h3>
 <p align="center">
+  <a href="https://react.dev/">
+    <img src="https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB">
+  </a>
+
   <a href="https://www.npmjs.org/package/react-ripples-continued">
     <img src="https://img.shields.io/npm/v/react-ripples-continued?style=for-the-badge&logo=npm&color=ff79c6&labelColor=282a36"/>
   </a>
