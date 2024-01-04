@@ -29,23 +29,23 @@ This repository contains
 
 # Contents
 
-- [Documentation](#documentation)
+- [Documentation](#-documentation)
 
-  - [Installation](#installation)
+  - [Installation](#-installation)
 
-  - [Usage](#usage)
+  - [Usage](#-usage)
 
-  - [Props](#props)
+  - [Props](#-props)
 
     - [Ripples Component](#ripples-component)
 
     - [RippleSurface Component](#ripplesurface-component)
 
-  - [Internal Workings](#internal-workings)
+  - [Internal Workings](#-internal-workings)
 
-- [Server Side Rendering](#server-side-rendering)
-- [How To Contribute](#third-example)
-- [License](#license)
+- [Server Side Rendering](#-server-side-rendering)
+- [How To Contribute](#-how-to-contribute)
+- [License](#-license)
 
 # 📖 Documentation
 
