@@ -15,6 +15,8 @@
   </a>
 </p>
 
+![image](/imgs/showcase.gif)
+
 ---
 
 React Ripples Continued is a
@@ -31,10 +33,15 @@ This repository contains
 - [Documentation](#documentation)
 
   - [Installation](#installation)
+
   - [Usage](#usage)
+
   - [Props](#props)
+
     - [Ripples Component](#ripples-component)
+
     - [RippleSurface Component](#ripplesurface-component)
+
   - [Internal Workings](#internal-workings)
 
 - [How to contribute](#third-example)
