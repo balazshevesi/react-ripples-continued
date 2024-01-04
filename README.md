@@ -213,7 +213,7 @@ Event handlers
 
 Props to be passed to the Ripples component.
 
-## 🛠️ Internal Workings
+## 🛠 Internal Workings
 
 #### `addRipple`
 
@@ -221,7 +221,7 @@ This internal function is responsible for creating and animating the ripple effe
 
 This function is not react specific (except ReactDOM.createRoot for prasing JSX/createElement calls to js DOM operations), so it could quite easily be adpated for use with solid, vue, svelte, angular, or any other framework.
 
-## 🖥️ Server Side Rendering
+## 🖥 Server Side Rendering
 
 This library was built for server side use in mind, primarily for [next](https://nextjs.org/). Both of the components are tagged with ["use clients"](https://react.dev/reference/react/use-client) to ensure it works.
 
