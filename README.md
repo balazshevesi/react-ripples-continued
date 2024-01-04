@@ -1,16 +1,15 @@
-<img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/cover.png?raw=true">
+<!-- <img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/cover.png?raw=true"> -->
 <h1 align="center">
     <a href="https://balazs-topg.github.io/react-ripples-continued/">React Ripples Continued</a>
 </h1>
-<p align="center">
-  Ripple effect for react made simple⚛️
-</p>
+<h3 align="center">
+  Ripple effect for <a href="https://react.dev/">react</a> made simple⚛️
+</h3>
 <p align="center">
   <a href="https://www.npmjs.org/package/react-ripples-continued">
     <img src="https://img.shields.io/npm/v/react-ripples-continued?style=for-the-badge&logo=npm&color=ff79c6&labelColor=282a36"/>
   </a>
   <img src="https://img.shields.io/bundlephobia/minzip/react-ripples-continued?style=for-the-badge&logo=webpack&color=ff79c6&labelColor=282a36" />
-
   <a href="https://www.npmjs.org/package/react-ripples-continued">
     <img src="https://img.shields.io/npm/l/react-ripples-continued?style=for-the-badge&logo=webpack&color=ff79c6&labelColor=282a36"/>
   </a>
@@ -18,16 +17,41 @@
 
 ---
 
+React Ripples Continued is a
+[React](https://react.dev/) component library for creating ripples effects.
 
-# React Ripples Continued
+This repository contains
 
-React Ripples Continued is a React component library providing a visual ripple effect, typically used for button click or touch feedback. It's inspired by material design principles and now includes the RippleSurface component for more versatile usage.
+- the [npm package](https://www.npmjs.com/package/react-ripples-continued) ([view code](/package/))
+- the [the documentaton](#documentation) ([view file](/README.md))
+- the [the website that showcases the components](https://balazs-topg.github.io/react-ripples-continued/) ([view code](/src/))
 
-Installation
-Copy code
-npm install react-ripples-continued
-Usage
-Ripples Component
+# Contents
+
+- [Documentation](#documentation)
+
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Props](#props)
+    - [Ripples Component](#ripples-component)
+    - [RippleSurface Component](#ripplesurface-component)
+  - [Internal Workings](#internal-workings)
+
+- [How to contribute](#third-example)
+- [License](#license)
+
+# Documentation
+
+## Installation
+
+Run this [npm](https://docs.npmjs.com/) command in the directory of your react application
+
+`npm i react-ripples-continued`
+
+## Usage
+
+This library includes two components: Ripples, and RippleSurface.
+
 The Ripples component creates a ripple effect. Note that the parent container should have overflow: "hidden" and position: "relative" for proper functionality.
 
 ```javascript
@@ -54,14 +78,14 @@ import { RippleSurface } from "react-ripples-continued";
 export default function CustomComponent() {
   return (
     <RippleSurface
-      tag="div"
+      tag="button"
       rippleProps={
         {
           /* Ripple props */
         }
       }
     >
-      {/* Your content */}
+      react ripples 🎉
     </RippleSurface>
   );
 }
@@ -182,23 +206,22 @@ Event handlers
 
 Props to be passed to the Ripples component.
 
-## Internal Workings
+### Internal Workings
 
-### `addRipple`
+#### `addRipple`
 
 This internal function is responsible for creating and animating the ripple effect based on the provided parameters.
 
 This function is not react specific (except ReactDOM.createRoot for prasing JSX/createElement calls to js DOM operations), so it could quite easily be adpated for use with solid, vue, svelte, angular, or any other framework.
 
-## Dynamic Animations
+## Server Side Rendering
 
-The component includes two animation keyframes:
+This library was built for server side use in mind, primarily for [next](https://nextjs.org/). Both of the components are tagged with ["use clients"](https://react.dev/reference/react/use-client) to ensure it works.
 
-1. `ripple-animation`: The standard ripple effect animation.
-2. `ripple-fill-and-hold-scale-animation`: A fill and hold animation for the ripple effect.
+## How to contribute
 
-## Styling
+All types of contributions are welcome! Feel free to open issues, or pull requests or whatever you feel like.
 
-The ripple effect is styled with an absolute position, ensuring it covers its parent element. The size and position of the ripple are determined based on the triggering event's location.
+## License
 
-Keep in mind that the parent element will need to be set to overflow: "hidden" and position: "relative"
+This library is [MIT licensed](/LICENSE).
