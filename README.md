@@ -1,6 +1,5 @@
-<!-- <img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/cover.png?raw=true"> -->
 <h1 align="center">
-    <a href="https://balazs-topg.github.io/react-ripples-continued/">React Ripples Continued</a>
+    <a href="https://balazs-topg.github.io/react-ripples-continued/">React Ripples Continued 🌊</a>
 </h1>
 <h3 align="center">
   Ripple effect for <a href="https://react.dev/">react</a> made simple⚛️
@@ -15,7 +14,7 @@
   </a>
 </p>
 
-![image](/imgs/showcase.gif)
+<img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/showcase.gif?raw=true">
 
 ---
 
@@ -44,18 +43,19 @@ This repository contains
 
   - [Internal Workings](#internal-workings)
 
-- [How to contribute](#third-example)
+- [Server Side Rendering](#server-side-rendering)
+- [How To Contribute](#third-example)
 - [License](#license)
 
-# Documentation
+# 📖 Documentation
 
-## Installation
+## 💾 Installation
 
 Run this [npm](https://docs.npmjs.com/) command in the directory of your react application
 
 `npm i react-ripples-continued`
 
-## Usage
+## 😃 Usage
 
 This library includes two components: Ripples, and RippleSurface.
 
@@ -98,7 +98,7 @@ export default function CustomComponent() {
 }
 ```
 
-## Props
+## 🏠 Props
 
 ### Ripples Component
 
@@ -213,7 +213,7 @@ Event handlers
 
 Props to be passed to the Ripples component.
 
-### Internal Workings
+## 🛠️ Internal Workings
 
 #### `addRipple`
 
@@ -221,14 +221,14 @@ This internal function is responsible for creating and animating the ripple effe
 
 This function is not react specific (except ReactDOM.createRoot for prasing JSX/createElement calls to js DOM operations), so it could quite easily be adpated for use with solid, vue, svelte, angular, or any other framework.
 
-## Server Side Rendering
+## 🖥️ Server Side Rendering
 
 This library was built for server side use in mind, primarily for [next](https://nextjs.org/). Both of the components are tagged with ["use clients"](https://react.dev/reference/react/use-client) to ensure it works.
 
-## How to contribute
+## 👏 How to contribute
 
 All types of contributions are welcome! Feel free to open issues, or pull requests or whatever you feel like.
 
-## License
+## 📄 License
 
 This library is [MIT licensed](/LICENSE).
