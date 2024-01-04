@@ -27,9 +27,9 @@ React Ripples Continued is a
 
 This repository contains
 
-- the [npm package](https://www.npmjs.com/package/react-ripples-continued) ([view code](/package/))
-- the [the documentaton](#documentation) ([view file](/README.md))
-- the [the website that showcases the components](https://balazs-topg.github.io/react-ripples-continued/) ([view code](/src/))
+- [the npm package](https://www.npmjs.com/package/react-ripples-continued) ([view code](/package/))
+- [the documentaton](#documentation) ([view file](/README.md))
+- [the website that showcases the components](https://balazs-topg.github.io/react-ripples-continued/) ([view code](/src/))
 
 # Contents
 
