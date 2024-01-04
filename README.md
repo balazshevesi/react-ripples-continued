@@ -19,7 +19,7 @@
 ---
 
 React Ripples Continued is a
-[React](https://react.dev/) component library for creating ripples effects.
+[react](https://react.dev/) component library for creating ripples effects.
 
 This repository contains
 
