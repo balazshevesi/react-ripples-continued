@@ -14,7 +14,7 @@
   </a>
 </p>
 
-<img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/showcase.gif?raw=true">
+<div align="center"><img src="https://github.com/Balazs-topg/react-ripples-continued/blob/main/imgs/showcase.gif?raw=true"></div>
 
 ---
 
