@@ -1,6 +1,6 @@
 {
   "name": "react-ripples-continued",
-  "version": "1.3.3",
+  "version": "1.3.6",
   "description": "UI ripple effect for react made simple",
   "main": "dist/main.js",
   "type": "module",
