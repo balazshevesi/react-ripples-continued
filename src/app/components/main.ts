@@ -1,5 +1,5 @@
-import { RippleSurface } from "./RippleSurface.jsx";
-import { Ripples } from "./Ripples.jsx";
+import { RippleSurface } from "./RippleSurface";
+import { Ripples } from "./Ripples";
 
 export { RippleSurface };
 export { Ripples };
