@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 
-import { Ripples } from "./Ripples";
+import { Ripples } from "./Ripples.jsx";
 import { HtmlTagName } from "./types/HtmlTagName.js";
 import { RipplesInterface } from "./types/RipplesInterface.js";
 
